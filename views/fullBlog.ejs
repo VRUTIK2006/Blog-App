@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Blog</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+           background-color:rgb(187, 182, 255); 
+           
+        }
+        nav{
+        color:white;
+        height:40px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        background-color: rgb(0, 0, 0);
+        position:sticky;
+  top: 0;  
+  z-index: 1000; 
+       }
+       nav ul{
+        display: flex;
+        list-style: none;
+        gap:10px;
+        align-items: center;
+       }
+       nav ul li{
+        background-color:rgb(88, 88, 255);
+        padding: 7px;
+        border:1px solid white;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+       }
+       nav ul li:hover{
+        transform: scale(1.05);
+       }
+       a{
+        text-decoration: none;
+        color: white;
+       }
+        
+        .blog-card{
+        color:white;
+        width: 690px;
+        height:810px;
+        margin:5px;
+        padding: 10px;
+        border:1px solid white;
+        border-radius: 10px;
+        overflow:hidden;
+        background-color: black;
+        position: relative;
+       }
+        .blog-card img{
+           border-radius: 10px;
+        }
+        .imgcontainer{
+            display: flex;
+            width:690px ;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+            overflow: hidden;
+        }
+        .content{
+            margin-top: 10px;
+        }
+        .author{
+        color:black;
+        background-color: yellow;
+        bottom:40px;
+        position: absolute;
+        } 
+        button{
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color:white;
+            background-color: rgb(132, 0, 255);
+            transition: transform 0.3s ease;
+        } 
+         button:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+        } 
+        h1{
+            margin-top: 10px;
+        }   
+    </style>
+</head>
+<body>
+    <%- include("partials/nav", { isAuth: isAuth }) %>
+    <div class="blog-card">
+        <% if (blog.coverPhoto) { %>
+            <div class="imgcontainer">
+                      <img src="/uploads/<%= blog.coverPhoto %>" alt="Cover Photo">
+            </div>
+    <% } %>
+    <h1><%= blog.title %></h1>
+    
+    <p class="content"><%= blog.content %></p>
+    <p class="author">By <b><%= blog.author ? blog.author.name : "Unknown" %></b> | <%= blog.createdAt.toDateString() %></p>
+    </div>
+    <div class="btn">
+        <form action="/api/user/home">
+        <button>
+            Back
+        </button>
+        </form>
+       
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+<nav>
+  <p>Blog-App</p>
+  <ul>
+    <li><a href="/api/user/home">Home</a></li>
+
+    <% if (isAuth) { %>
+      <li><a href="/api/blog/createBlog">Upload Blog</a></li>
+      <form action="/api/user/logout" method="post">
+        <button type="submit">Logout</button>
+      </form>
+    <% } else { %>
+      <li><a href="/api/user/signup">Sign Up</a></li>
+      <li><a href="/api/user/login">Log In</a></li>
+    <% } %>
+  </ul>
+</nav>

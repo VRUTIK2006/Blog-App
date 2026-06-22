@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: black;
+        }
+        fieldset{
+            border-radius: 10px;
+        }
+        form{
+             background-color:rgb(187, 182, 255);
+             border-radius: 10px;
+             padding: 10px;
+        }
+        form input{
+            margin-top: 5px;
+        }
+        h1{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Blog</h1><br>
+     <form action="/api/blog/createblog" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Create Blog</legend>
+       
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" placeholder="Enter Title of Blog"><br>
+        <label for="content">Content</label>
+        <input type="text" name="content" id="content" placeholder="Content of Your Blog"><br>
+        <label for="coverimage">Cover Image</label>
+        <input type="file" name="coverPhoto" id="coverPhoto"><br>
+        <input type="submit" value="submit">
+  
+    </fieldset>
+      </form>
+    
+
+</body>
+</html>
